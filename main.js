@@ -120,10 +120,7 @@ map.on('load', function () {
 	//Map - popout
 
 	map.on('click', 'Flickr', function (e) {
-		new mapboxgl.Popup()
-		.setLngLat(e.lngLat)
-		.setHTML(e.features[0].properties.jpt_nazwa_)
-		.addTo(map);
+		new mapboxgl.Popup().setLngLat(e.lngLat).setHTML(e.features[0].properties.jpt_nazwa_).addTo(map);
 	});
 
 	map.on('click', 'symbole', function (e) {
@@ -244,9 +241,6 @@ $(document).ready(buildBookmarkSelect = function() {
 		select.append(option);
 	})
 });
-
-
-
 
 /*
 $(document).ready(createSocialIcons = function() {
