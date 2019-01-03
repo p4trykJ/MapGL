@@ -1,4 +1,4 @@
-body { 
+body {
 	display: flex;
 	margin: 0; 
 	padding: 0; 
@@ -20,7 +20,7 @@ body {
 .btn-group {
 	margin-left: 10px;
 }
-#group__button--remove {
+#bookmarks__button--remove {
 	margin-left: 2px;
 }
 .bookmarks__wrapper {
