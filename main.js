@@ -284,13 +284,6 @@ $(document).ready(createSocialIcons = function() {
 
 */
 
-// Autor card 
-
-$(document).ready(showCard = function () {
-	$('.links__element--autor')[0].onclick = function () {
-		$(".authorCard").toggle(1000)
-	}
-})
 
 
 localStorage.setItem('testObject', JSON.stringify(bookmarks));
