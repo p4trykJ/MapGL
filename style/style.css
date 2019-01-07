@@ -5,7 +5,7 @@ body {
 }
 #map { 
 	position: absolute; 
-	top: 50px; 
+	top: 0px; 
 	bottom: 0; 
 	width: 100%;
 	z-index: -1;
@@ -16,6 +16,7 @@ body {
 .navbar {
 	height: 50px;
 	width: 100%;
+	opacity: 0.9;
 }
 .nav__icon--img {
 	height: 30px;
@@ -37,10 +38,13 @@ body {
 }
 .basemapChange__wrapper {
 	position: absolute;
-	top: 60px;
+	top: 65px;
 	right: 10px;
 	border-radius: 4px;
 	box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+}
+.basemapChange__wrapper:hover {
+	background-color: rgba(0, 0, 0, 0.05);
 }
 .basemap__option {
 	display: flex;
@@ -49,6 +53,9 @@ body {
 	border-radius: 4px;
 	margin-bottom: 5px;
 	padding: 3px;
+}
+.basemap__option:hover {
+	background-color: rgba(0, 0, 0, 0.05);
 }
 .basemap__option--last {
 	display: flex;
@@ -69,7 +76,6 @@ body {
 .basemapChange__button {
 	opacity: 0.8;
 	background-color: lightgray;
-	
 }
 .btn-group>.btn-group:not(:last-child)>.btn, .btn-group>.btn:not(:last-child):not(.dropdown-toggle) {
 	border-top-right-radius: 4px; 
@@ -97,12 +103,17 @@ body {
 	background-color: lightgrey !important;
 	opacity: 0.8;
 }
+.mapboxgl-ctrl-top-left {
+	top: 55px;
+	right: 0;
+}
 .card {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
 	height: 430px;
 	width: 300px;
 	border-radius: 4px;
+	background-color: lightgray;
 }
 .authorCard--photo {
 	border-radius: 4px;
@@ -130,16 +141,19 @@ body {
 	display: grid;
 	position: absolute;
 	right: 10px;
-	top: 120px;
+	top: 115px;
 	border-radius: 4px;
 	box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
-	opacity: 0.8;
 	background-color: lightgray;
+	opacity: 0.8;
 }
 .buttonsMap__button {
-	opacity: 0.8;
 	border-radius: 0px;
 	border-bottom: 1px solid #ddd;
+	opacity: 0.8;
+}
+.buttonsMap__button:hover {
+	background-color: rgba(0, 0, 0, 0.05);
 }
 .buttonsMap__button--first {
 	border-top-left-radius: 4px;

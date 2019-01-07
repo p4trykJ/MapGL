@@ -28,6 +28,16 @@ var scale = new mapboxgl.ScaleControl({
 
 map.addControl(scale);
 map.addControl(new mapboxgl.NavigationControl(options), 'top-left');
+map.addControl(new mapboxgl.GeolocateControl({
+	positionOptions: {enableHighAccuracy: true},
+	trackUserLocation: true
+}), 'top-left');
+
+map.addControl(new MapboxGeocoder({
+	accessToken: mapboxgl.accessToken,
+	placeholder: "Czego szukasz?"
+}));
+
 
 // Map - functions
 
@@ -285,8 +295,6 @@ $(document).ready(createSocialIcons = function() {
 */
 
 
-
-localStorage.setItem('testObject', JSON.stringify(bookmarks));
 
 
 
