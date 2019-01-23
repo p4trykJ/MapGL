@@ -13,12 +13,12 @@ body {
 .mapboxgl-canvas {
 	cursor: pointer;
 }
-.navbar {
+/* .navbar {
 	height: 50px;
 	width: 100%;
 	opacity: 0.9;
 	display: none;
-}
+} */
 .nav__icon--img {
 	height: 30px;
 }
@@ -75,7 +75,6 @@ body {
 	opacity: 0.8;
 }
 .basemapChange__button {
-	opacity: 0.8;
   background-color: lightgray;
   border: 1px solid grey;
 }
@@ -138,7 +137,8 @@ body {
 	top: 0;
 	position: absolute;
 	padding-right: 10px;
-	margin-top: 45px;
+  margin-top: 10px;
+  opacity: 0.8;
 }
 .buttonsMap__wrapper {
 	display: grid;
@@ -146,12 +146,10 @@ body {
 	border-radius: 4px;
 	box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
 	background-color: lightgray;
-	opacity: 0.8;
 }
 .buttonsMap__button {
 	border-radius: 0px;
 	border-bottom: 1px solid #ddd;
-  opacity: 0.8;
   width: 100%
 }
 .buttonsMap__button:hover {
