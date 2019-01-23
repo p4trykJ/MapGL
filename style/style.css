@@ -17,6 +17,7 @@ body {
 	height: 50px;
 	width: 100%;
 	opacity: 0.9;
+	display: none;
 }
 .nav__icon--img {
 	height: 30px;
@@ -34,12 +35,11 @@ body {
 	margin-left: 5px;
 }
 #select {
-	width: 200px;
+  width: 200px;
+  border: 1px solid grey;
 }
 .basemapChange__wrapper {
-	position: absolute;
-	top: 65px;
-	right: 10px;
+	
 	border-radius: 4px;
 	box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
 }
@@ -68,14 +68,16 @@ body {
 	display:none;
 }
 .dropdown-menu {
-	padding: 10px;
+  padding: 10px;
+  border: none;
 }
 .btn-group {
 	opacity: 0.8;
 }
 .basemapChange__button {
 	opacity: 0.8;
-	background-color: lightgray;
+  background-color: lightgray;
+  border: 1px solid grey;
 }
 .btn-group>.btn-group:not(:last-child)>.btn, .btn-group>.btn:not(:last-child):not(.dropdown-toggle) {
 	border-top-right-radius: 4px; 
@@ -88,9 +90,7 @@ body {
 	box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
 	background-color: lightgrey;
 }
-.dropdown-menu {
-	border: none;
-}
+
 .mapboxgl-ctrl-group {
 	background-color: lightgray;
 	opacity: 0.8;
@@ -102,10 +102,6 @@ body {
 .mapboxgl-ctrl-attrib {
 	background-color: lightgrey !important;
 	opacity: 0.8;
-}
-.mapboxgl-ctrl-top-left {
-	top: 55px;
-	right: 0;
 }
 .card {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -137,11 +133,16 @@ body {
 	display: flex;
 	justify-content: center;
 }
+.buttons__wrapper {
+	right: 0;
+	top: 0;
+	position: absolute;
+	padding-right: 10px;
+	margin-top: 45px;
+}
 .buttonsMap__wrapper {
 	display: grid;
-	position: absolute;
-	right: 10px;
-	top: 115px;
+	margin-top: 5px;
 	border-radius: 4px;
 	box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
 	background-color: lightgray;
@@ -150,7 +151,8 @@ body {
 .buttonsMap__button {
 	border-radius: 0px;
 	border-bottom: 1px solid #ddd;
-	opacity: 0.8;
+  opacity: 0.8;
+  width: 100%
 }
 .buttonsMap__button:hover {
 	background-color: rgba(0, 0, 0, 0.05);
@@ -163,4 +165,14 @@ body {
 	border-bottom-left-radius: 4px;
 	border-bottom-right-radius: 4px;
 	border-bottom: none;
+}
+#bookmarks__dropdown {
+  transform: translate3d(-280px, 0px, 0px) !important;
+  background-color: lightgray;
+}
+.buttonsMap__button--tooltip {
+  width: 100%;
+}
+.mapboxgl-popup-content {
+  width: 300px;
 }
