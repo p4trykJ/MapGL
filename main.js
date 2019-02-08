@@ -6,8 +6,8 @@ mapboxgl.accessToken = 'pk.eyJ1Ijoic3BpZGVyaGFybmFzIiwiYSI6ImNqbmN2aHlxcjBvYzkzc
 const map = new mapboxgl.Map({
   container: 'map',
   style: 'mapbox://styles/spiderharnas/cjrwamwzc26ce1fqinwxis1mi',
-  center: [16.887609339307232, 52.40536031499309],
-  zoom: 3.0
+  center: [0, 20],
+  zoom: 1.3
 });
 
 // Map - options
@@ -163,9 +163,14 @@ map.on('load', function () {
     let coordinates = e.features[0].geometry.coordinates.slice();
 
     e.features.forEach((feature, index) => {
-      console.log(e.features.length)
+
+      console.log(feature)
+      if(feature.properties.route == "null") {
+        feature.properties.route = "no data"
+      }
+
       let html = `<div class="popup__counter">
-                  Zdarzenie w miejscu:
+                  Accident in location:
                   ${e.features.length - index}/${e.features.length}
                   </div>
                   <ul class="popup__list">
@@ -174,23 +179,23 @@ map.on('load', function () {
                   ${feature.properties.operator}
                   </li>
                   <li class="popup__list--el">
-                  Data:
+                  Date:
                   ${feature.properties.date}
                   </li>
                   <li class="popup__list--el">
-                  Na pokładzie:
+                  Aboard:
                   ${feature.properties.aboard}
                   </li>
                   <li class="popup__list--el">
-                  Zginęło:
+                  Fatalities:
                   ${feature.properties.fatalities}
                   </li>
                   <li class="popup__list--el">
-                  Typ samolotu:
+                  Plane type:
                   ${feature.properties.type}
                   </li>
                   <li class="popup__list--el">
-                  Trasa:
+                  Route:
                   ${feature.properties.route}
                   </li>
                   <li class="popup__list--el">
