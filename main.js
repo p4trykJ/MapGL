@@ -2,12 +2,12 @@
 
 // MAP
 // Map - instance
-mapboxgl.accessToken = 'pk.eyJ1IjoicGplemllcnNraTI0IiwiYSI6ImNqbXJ6NW04dTI1d3kzcHBkM3djbGwwMGoifQ.UlrhKR6v9F7glTdNQXRL1g';
+mapboxgl.accessToken = 'pk.eyJ1Ijoic3BpZGVyaGFybmFzIiwiYSI6ImNqbmN2aHlxcjBvYzkzcHBrbzVhcnE1d2YifQ.ekC72cbJYJKTvQFRDJjfEw';
 const map = new mapboxgl.Map({
   container: 'map',
-  style: 'mapbox://styles/pjezierski24/cjo3bh5q138xl2smpcvv05n7l',
+  style: 'mapbox://styles/spiderharnas/cjrwamwzc26ce1fqinwxis1mi',
   center: [16.887609339307232, 52.40536031499309],
-  zoom: 9.80908506743856
+  zoom: 3.0
 });
 
 // Map - options
@@ -70,7 +70,7 @@ loadSources = function () {
     type: "geojson",
     // Point to GeoJSON data. This example visualizes all M1.0+ earthquakes
     // from 12/22/15 to 1/21/16 as logged by USGS' Earthquake hazards program.
-    data: 'https://divi.io/api/features/NDIx.YdSRHAqMCxJh7pO0QJsF1xFy1Zg',
+    data: 'https://divi.io/api/features/NDMx.j-b6eeBbyTAnH06LmbJXveYBHcA',
     cluster: true,
     clusterMaxZoom: 14, // Max zoom to cluster points on
     clusterRadius: 50 // Radius of each cluster when clustering points (defaults to 50)
@@ -144,14 +144,6 @@ map.on("style.load", function () {
 
 map.on('load', function () {
 
-  map.on('click', 'Flickr', function (e) {
-    new mapboxgl.Popup().setLngLat(e.lngLat).setHTML(e.features[0].properties.jpt_nazwa_).addTo(map);
-  });
-
-  map.on('click', 'unclustered-point', function (e) {
-    map.flyTo({center: e.features[0].geometry.coordinates});
-  });
-
   map.on('click', 'clusters', function (e) {
     var features = map.queryRenderedFeatures(e.point, {layers: ['clusters']});
     var clusterId = features[0].properties.cluster_id;
@@ -166,8 +158,76 @@ map.on('load', function () {
     });
   });
 
-  map.on('mouseenter', 'clusters', function () {
+  map.on('click', 'unclustered-point', function (e) {
+    console.log()
+    let coordinates = e.features[0].geometry.coordinates.slice();
+
+    e.features.forEach((feature, index) => {
+      console.log(e.features.length)
+      let html = `<div class="popup__counter">
+                  Zdarzenie w miejscu:
+                  ${e.features.length - index}/${e.features.length}
+                  </div>
+                  <ul class="popup__list">
+                  <li class="popup__list--el">
+                  Operator:
+                  ${feature.properties.operator}
+                  </li>
+                  <li class="popup__list--el">
+                  Data:
+                  ${feature.properties.date}
+                  </li>
+                  <li class="popup__list--el">
+                  Na pokładzie:
+                  ${feature.properties.aboard}
+                  </li>
+                  <li class="popup__list--el">
+                  Zginęło:
+                  ${feature.properties.fatalities}
+                  </li>
+                  <li class="popup__list--el">
+                  Typ samolotu:
+                  ${feature.properties.type}
+                  </li>
+                  <li class="popup__list--el">
+                  Trasa:
+                  ${feature.properties.route}
+                  </li>
+                  <li class="popup__list--el">
+                  Lokalizacja:
+                  ${feature.properties.location}
+                  </li>
+                  </ul>`
+      new mapboxgl.Popup()
+        .setLngLat(coordinates)
+        .setHTML(html)
+        .addTo(map);
+    })
+
+    // var coordinates = e.features[0].geometry.coordinates.slice();
+    // var description = e.features[0].properties.type;
+    // var coordinates1 = e.features[1].geometry.coordinates.slice();
+    // var description1 = e.features[1].properties.type;
+
+    // Ensure that if the map is zoomed out such that multiple
+    // copies of the feature are visible, the popup appears
+    // over the copy being pointed to.
+    while(Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+      coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+    }
+
+  });
+
+  map.on('mouseenter', 'unclustered-point', function () {
     map.getCanvas().style.cursor = 'pointer';
+  });
+
+  map.on('mouseleave', 'unclustered-point', function () {
+    map.getCanvas().style.cursor = '';
+  });
+
+  map.on('mouseenter', 'clusters', function () {
+    map.getCanvas().style.cursor = 'zoom-in';
   });
   map.on('mouseleave', 'clusters', function () {
     map.getCanvas().style.cursor = '';

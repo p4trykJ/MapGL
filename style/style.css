@@ -10,9 +10,6 @@ body {
 	width: 100%;
 	z-index: -1;
 }
-.mapboxgl-canvas {
-	cursor: pointer;
-}
 /* .navbar {
 	height: 50px;
 	width: 100%;
@@ -177,4 +174,26 @@ body {
 }
 .mapboxgl-popup-content {
   width: 300px;
+}
+.popup__list--el {
+  border-bottom: 1px solid grey;
+}
+.popup__list {
+  list-style-type:none;
+  margin-left: -20px;
+  margin-right: 30px;
+  margin-top: 10px;
+}
+.popup__list--el:last-child {
+  border-bottom: none !important;
+}
+.mapboxgl-popup-content {
+  background-color: lightgrey;
+}
+.mapboxgl-popup-tip {
+  display: none;
+}
+.popup__counter {
+  text-align: right;
+  margin-right: 15px;
 }
