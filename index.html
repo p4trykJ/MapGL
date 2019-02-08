@@ -24,7 +24,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header" style="background-color: lightgray;">
-          <h5 class="modal-title" id="exampleModalLabel">Dodaj zakładkę</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Add bookmark</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -32,21 +32,21 @@
         <div class="modal-body">
           <form>
             <div class="form-group">
-              <label for="bookmark-name" class="col-form-label">Nazwa zakładki</label>
+              <label for="bookmark-name" class="col-form-label">Bookmark name</label>
               <input autofocus type="text" class="form-control" id="bookmark-name">
             </div>
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn bookmarks__button bookmarks__button--close" data-dismiss="modal">Zamknij</button>
-          <button id="bookmarks__button--save" type="button" class="btn bookmarks__button bookmarks__button--save">Zapisz</button>
+          <button type="button" class="btn bookmarks__button bookmarks__button--close" data-dismiss="modal">Cancel</button>
+          <button id="bookmarks__button--save" type="button" class="btn bookmarks__button bookmarks__button--save">Save</button>
         </div>
       </div>
     </div>
   </div>
   <div class="buttons__wrapper">
     <div class="basemapChange__wrapper">
-      <div class="buttonsMap__button--tooltip btn-group dropleft" title="Styl mapy" data-placement="left" data-toggle="tooltip"
+      <div class="buttonsMap__button--tooltip btn-group dropleft" title="Change map style" data-placement="left" data-toggle="tooltip"
         style="width: 100%;">
         <button type="button" style="border: none !important;" class="btn basemapChange__button" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
@@ -55,33 +55,33 @@
         <div class="dropdown-menu" id="layerOptions">
           <div class="basemap__option" id="basic">
             <img src="static/styles/basic.png" alt="Smiley face" height="42" width="42">
-            <p>Bazowy</p>
+            <p>Basic</p>
           </div>
           <div class="basemap__option" id="streets">
             <img src="static/styles/streets.png" alt="Smiley face" height="42" width="42">
-            <p>Ulice</p>
+            <p>Streets</p>
           </div>
           <div class="basemap__option" id="bright">
             <img src="static/styles/bright.png" alt="Smiley face" height="42" width="42">
-            <p>Jasny</p>
+            <p>Bright</p>
           </div>
           <div class="basemap__option" id="light">
             <img src="static/styles/light.png" alt="Smiley face" height="42" width="42">
-            <p>Światło</p>
+            <p>Light</p>
           </div>
           <div class="basemap__option" id="dark">
             <img src="static/styles/dark.png" alt="Smiley face" height="42" width="42">
-            <p>Ciemny</p>
+            <p>Dark</p>
           </div>
           <div class="basemap__option--last" id="satellite">
             <img src="static/styles/sattelite.png" alt="Smiley face" height="42" width="42">
-            <p>Satelitarny</p>
+            <p>Sattelite</p>
           </div>
         </div>
       </div>
     </div>
     <div class="buttonsMap__wrapper">
-      <div class="buttonsMap__button--tooltip btn-group dropleft" title="Zakładki" data-placement="left" data-toggle="tooltip">
+      <div class="buttonsMap__button--tooltip btn-group dropleft" title="Bookmarks" data-placement="left" data-toggle="tooltip">
 
         <button type="button" data-toggle="dropdown" aria-haspopup="true" class="btn buttonsMap__button buttonsMap__button--first buttonsMap__buttons--info">
           <i class="fas fa-bookmark"></i>
@@ -103,12 +103,12 @@
           </div>
         </div>
       </div>
-      <span class="buttonsMap__button--tooltip" title="Cieniowanie wody" data-placement="left" data-toggle="tooltip">
+      <span class="buttonsMap__button--tooltip" title="Water shading" data-placement="left" data-toggle="tooltip">
         <button id="watershade__button" type="button" class="btn buttonsMap__button buttonsMap__button--middle buttonsMap__buttons--info">
           <i class="fas fa-water"></i>
         </button>
       </span>
-      <span class="buttonsMap__button--tooltip" title="Cieniowanie terenu" data-placement="left" data-toggle="tooltip">
+      <span class="buttonsMap__button--tooltip" title="Terrain shading" data-placement="left" data-toggle="tooltip">
         <button id="hillshade__button" type="button" class="btn buttonsMap__button buttonsMap__button--middle buttonsMap__buttons--info">
           <i class="fas fa-mountain"></i>
         </button>
@@ -119,13 +119,12 @@
           <i class="fas fa-info"></i>
         </button>
         <span>
-          <span class="buttonsMap__button--tooltip" title="Autor" data-placement="left" data-toggle="tooltip">
+          <span class="buttonsMap__button--tooltip" title="Author" data-placement="left" data-toggle="tooltip">
             <button type="button" class="btn buttonsMap__button buttonsMap__button--last buttonsMap__buttons--info"
               data-toggle="modal" data-target="#authorCardModal">
               <i class="fab fa-autoprefixer"></i>
             </button>
             <span>
-
     </div>
   </div>
   <div class="modal fade" id="aboutCardModal" tabindex="-1" role="dialog" aria-labelledby="aboutCardModalLabel"
@@ -134,10 +133,9 @@
       <div class="modal-content authorCardModal__content">
         <div class="modal-body authorModal__body">
           <div class="card">
-
             <div class="container">
               <div style="text-align: center;">
-                <h4><b>About</b></h4>
+                <h4><b>About this map</b></h4>
                 This map displays airplane accidents all around the world since 1908 till 2009.
                 <br>
                 <a class="" target="_blank" rel="noopener noreferrer" href="https://data.world/data-society/airplane-crashes?fbclid=IwAR3Ptn9_YvcPaj5a7d8Tbl2fRLjPjZGljIoGS2h4yyMxonGEYDAGcFVeadA">
@@ -185,10 +183,9 @@
   <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.3.0/mapbox-gl-geocoder.min.js'></script>
   <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.3.0/mapbox-gl-geocoder.css'
     type='text/css' />
-
   <div id='map'></div>
   <script src="main.js"></script>
-  <!-- Jak przypał to odkomentować 
+  <!--
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"

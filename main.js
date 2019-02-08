@@ -28,7 +28,7 @@ let scale = new mapboxgl.ScaleControl({
 
 map.addControl(new MapboxGeocoder({
   accessToken: mapboxgl.accessToken,
-  placeholder: "Czego szukasz?"
+  placeholder: "Search"
 }), 'top-left');
 map.addControl(scale);
 
@@ -68,12 +68,11 @@ loadSources = function () {
 
   map.addSource("crashes", {
     type: "geojson",
-    // Point to GeoJSON data. This example visualizes all M1.0+ earthquakes
-    // from 12/22/15 to 1/21/16 as logged by USGS' Earthquake hazards program.
+
     data: 'https://divi.io/api/features/NDMx.j-b6eeBbyTAnH06LmbJXveYBHcA',
     cluster: true,
-    clusterMaxZoom: 14, // Max zoom to cluster points on
-    clusterRadius: 50 // Radius of each cluster when clustering points (defaults to 50)
+    clusterMaxZoom: 14,
+    clusterRadius: 50
   });
 
 }
@@ -85,19 +84,17 @@ addCrashes = function () {
     source: "crashes",
     filter: ["has", "point_count"],
     paint: {
-      // Use step expressions (https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-step)
-      // with three steps to implement three types of circles:
-      //   * Blue, 20px circles when point count is less than 100
-      //   * Yellow, 30px circles when point count is between 100 and 750
-      //   * Pink, 40px circles when point count is greater than or equal to 750
       "circle-color": [
+
         "step",
         ["get", "point_count"],
-        "#51bbd6",
+        "#F2F2F2",
+        20,
+        "#cccccc",
         100,
-        "#f1f075",
+        "#969696",
         750,
-        "#f28cb1"
+        "#525252"
       ],
       "circle-radius": [
         "step",
@@ -129,10 +126,10 @@ addCrashes = function () {
     source: "crashes",
     filter: ["!", ["has", "point_count"]],
     paint: {
-      "circle-color": "#11b4da",
+      "circle-color": "#636363",
       "circle-radius": 4,
       "circle-stroke-width": 1,
-      "circle-stroke-color": "#fff"
+      "circle-stroke-color": "#636363"
     }
   });
 }
@@ -159,16 +156,12 @@ map.on('load', function () {
   });
 
   map.on('click', 'unclustered-point', function (e) {
-    console.log()
     let coordinates = e.features[0].geometry.coordinates.slice();
 
     e.features.forEach((feature, index) => {
-
-      console.log(feature)
       if(feature.properties.route == "null") {
         feature.properties.route = "no data"
       }
-
       let html = `<div class="popup__counter">
                   Accident in location:
                   ${e.features.length - index}/${e.features.length}
@@ -209,14 +202,6 @@ map.on('load', function () {
         .addTo(map);
     })
 
-    // var coordinates = e.features[0].geometry.coordinates.slice();
-    // var description = e.features[0].properties.type;
-    // var coordinates1 = e.features[1].geometry.coordinates.slice();
-    // var description1 = e.features[1].properties.type;
-
-    // Ensure that if the map is zoomed out such that multiple
-    // copies of the feature are visible, the popup appears
-    // over the copy being pointed to.
     while(Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
       coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
     }
@@ -321,7 +306,7 @@ $(document).ready(addBookmark = function () {
 $(document).ready(buildBookmarkSelect = function () {
   let select = $("#select")
   select.empty()
-  let firstOption = "<option id='firstSelected' value='seleceted' disabled hidden selected>Zakładki</option>"
+  let firstOption = "<option id='firstSelected' value='seleceted' disabled hidden selected>Bookmarks</option>"
   select.append(firstOption)
   bookmarks.forEach(bookmark => {
     let option = document.createElement("OPTION");
@@ -357,8 +342,6 @@ $(document).ready(toogleWatershade = function () {
         "layout": {},
         "paint": {
           "fill-outline-color": "hsla(337, 82%, 62%, 0)",
-          // cubic bezier is a four point curve for smooth and precise styling
-          // adjust the points to change the rate and intensity of interpolation
           "fill-color": ["interpolate",
             ["cubic-bezier",
               0, 0.5,
@@ -368,16 +351,13 @@ $(document).ready(toogleWatershade = function () {
             9000, "#15659f"
           ]
         }
-      }, 'barrier_line-land-polygon');
+      });
     }
     else {
       map.removeLayer("10m-bathymetry-81bsvj")
     }
   }
 })
-
-
-
 
 /*
 $(document).ready(createSocialIcons = function() {
