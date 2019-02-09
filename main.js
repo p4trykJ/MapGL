@@ -400,9 +400,21 @@ $(document).ready(createSocialIcons = function() {
  
 */
 
+
+
 {
   document.addEventListener('DOMContentLoaded', function () {
 
+    function zoomTo(data) {
+      console.log(data)
+      map.flyTo({
+        center: [
+          data.data.geometry.coordinates[0],
+          data.data.geometry.coordinates[1]
+        ],
+        zoom: 10
+      })
+    }
 
     var gridDiv = document.querySelector('#myGrid');
 
@@ -410,6 +422,7 @@ $(document).ready(createSocialIcons = function() {
       enableColResize: "true",
       enableSorting: "true",
       enableFilter: "true",
+      onRowDoubleClicked: zoomTo,
       columnDefs: [
         {headerName: 'Date', field: 'properties.date'},
         {headerName: 'Aboard', field: 'properties.aboard'},
@@ -432,10 +445,8 @@ $(document).ready(createSocialIcons = function() {
       .catch(function (error) {
         alert(error);
       });
-
-
-
   });
+
 
 };
 
