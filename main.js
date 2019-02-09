@@ -157,11 +157,14 @@ map.on('load', function () {
 
   map.on('click', 'unclustered-point', function (e) {
     let coordinates = e.features[0].geometry.coordinates.slice();
-
     e.features.forEach((feature, index) => {
-      if(feature.properties.route == "null") {
-        feature.properties.route = "no data"
+      for(let poperty in feature.properties) {
+        if(feature.properties[poperty] == "null")
+          feature.properties[poperty] = "no data"
       }
+      // if(feature.properties.route == "null") {
+      //   feature.properties.route = "no data"
+      // }
       let html = `<div class="popup__counter">
                   Accident in location:
                   ${e.features.length - index}/${e.features.length}
@@ -192,7 +195,7 @@ map.on('load', function () {
                   ${feature.properties.route}
                   </li>
                   <li class="popup__list--el">
-                  Lokalizacja:
+                  Localization:
                   ${feature.properties.location}
                   </li>
                   </ul>`
