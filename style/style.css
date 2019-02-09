@@ -190,7 +190,7 @@ body {
 }
 .mapboxgl-popup-content {
   background-color: lightgrey;
-  width: 500px;
+  width: 400px;
   border-radius: 4px;
 }
 .mapboxgl-popup-tip {
