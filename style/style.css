@@ -217,8 +217,8 @@ body {
 }
 .grid--tooltip {
   display: flex;
-  justify-content: center;
-  margin-bottom: 10px;
+  justify-content: flex-end;
+  margin: -5px 17px 10px 0px;
 }
 .modal-header {
   background-color: lightgray;
