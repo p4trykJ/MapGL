@@ -87,13 +87,13 @@ addCrashes = function () {
         "circle-color": [
           "step",
           ["get", "point_count"],
-          "#ff69b4",
+          "#fc9272",
           20,
-          "#ff69b4",
+          "#fb6a4a",
           100,
-          "#ff69b4",
+          "#ef3b2c",
           750,
-          "#ff69b4"
+          "#cb181d"
         ],
         "circle-radius": [
           "step",
