@@ -230,44 +230,49 @@ map.on('load', function () {
 // Data - bookmarks
 var bookmarks = [
   {
-    name: "Zakładka1",
+    name: "New York, US",
     center: {
-      lat: 61.81490583215361,
-      lng: 55.954416392710925
-    }
+      lat: 40.87352503538958,
+      lng: -73.79312415240315
+    },
+    zoom: 8
   },
   {
-    name: "Zakładka2",
+    name: "Warsaw, Poland",
     center: {
-      lat: 61.81490583215361,
-      lng: 55.954416392710925
-    }
+      lat: 52.235599300392096,
+      lng: 21.010378897190094
+    },
+    zoom: 8
   },
   {
-    name: "Zakładka3",
+    name: "Rio Grande, Argentina",
     center: {
-      lat: 61.81490583215361,
-      lng: 55.954416392710925
-    }
+      lat: -53.76456066769579,
+      lng: -67.74444402065035
+    },
+    zoom: 10
   },
   {
-    name: "Zakładka4",
+    name: "Tokyo, Japan",
     center: {
-      lat: 61.81490583215361,
-      lng: 55.954416392710925
-    }
+      lat: 35.68335197721953,
+      lng: 139.7570453434081
+    },
+    zoom: 10
   }
 ]
 
 $(document).ready(flyTo = function () {
   let selectBookmarks = $("#select")
   selectBookmarks[0].onchange = function () {
-    let bookmarkData = $("#select").find(":selected").data().center
+    let bookmarkData = $("#select").find(":selected").data()
     map.flyTo({
       center: [
-        bookmarkData.lng,
-        bookmarkData.lat
-      ]
+        bookmarkData.center.lng,
+        bookmarkData.center.lat
+      ],
+      zoom: bookmarkData.zoom
     })
   }
 })

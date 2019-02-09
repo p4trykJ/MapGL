@@ -206,3 +206,7 @@ body {
   text-align: right;
   margin-right: 15px;
 }
+.basemap__option--label {
+  display: flex;
+  align-items: center;
+}
