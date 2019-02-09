@@ -77,35 +77,66 @@ loadSources = function () {
 }
 
 addCrashes = function () {
-  map.addLayer({
-    id: "clusters",
-    type: "circle",
-    source: "crashes",
-    filter: ["has", "point_count"],
-    paint: {
-      "circle-color": [
+  if(map.getStyle().name == "Bright" || map.getStyle().name == "Mapbox Light") {
+    map.addLayer({
+      id: "clusters",
+      type: "circle",
+      source: "crashes",
+      filter: ["has", "point_count"],
+      paint: {
+        "circle-color": [
+          "step",
+          ["get", "point_count"],
+          "#ff69b4",
+          20,
+          "#ff69b4",
+          100,
+          "#ff69b4",
+          750,
+          "#ff69b4"
+        ],
+        "circle-radius": [
+          "step",
+          ["get", "point_count"],
+          20,
+          100,
+          30,
+          750,
+          40
+        ]
+      }
+    });
+  } else {
+    map.addLayer({
+      id: "clusters",
+      type: "circle",
+      source: "crashes",
+      filter: ["has", "point_count"],
+      paint: {
+        "circle-color": [
+          "step",
+          ["get", "point_count"],
+          "#F2F2F2",
+          20,
+          "#cccccc",
+          100,
+          "#969696",
+          750,
+          "#525252"
+        ],
+        "circle-radius": [
+          "step",
+          ["get", "point_count"],
+          20,
+          100,
+          30,
+          750,
+          40
+        ]
+      }
+    });
+  }
 
-        "step",
-        ["get", "point_count"],
-        "#F2F2F2",
-        20,
-        "#cccccc",
-        100,
-        "#969696",
-        750,
-        "#525252"
-      ],
-      "circle-radius": [
-        "step",
-        ["get", "point_count"],
-        20,
-        100,
-        30,
-        750,
-        40
-      ]
-    }
-  });
 
   map.addLayer({
     id: "cluster-count",
@@ -406,7 +437,6 @@ $(document).ready(createSocialIcons = function() {
   document.addEventListener('DOMContentLoaded', function () {
 
     function zoomTo(data) {
-      console.log(data)
       map.flyTo({
         center: [
           data.data.geometry.coordinates[0],
@@ -443,11 +473,9 @@ $(document).ready(createSocialIcons = function() {
           gridOptions.api.setRowData(data.features);
         }))
       .catch(function (error) {
-        alert(error);
+        alert("Error:", error);
       });
   });
-
-
 };
 
 
