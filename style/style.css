@@ -215,3 +215,11 @@ body {
   max-width: 800px;
   margin: 1.75rem auto;
 }
+.grid--tooltip {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.modal-header {
+  background-color: lightgray;
+}
