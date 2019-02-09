@@ -211,3 +211,7 @@ body {
   align-items: center;
   margin-left: 5px;
 }
+.modal-dialog {
+  max-width: 800px;
+  margin: 1.75rem auto;
+}

@@ -407,6 +407,9 @@ $(document).ready(createSocialIcons = function() {
     var gridDiv = document.querySelector('#myGrid');
 
     var gridOptions = {
+      enableColResize: "true",
+      enableSorting: "true",
+      enableFilter: "true",
       columnDefs: [
         {headerName: 'Date', field: 'properties.date'},
         {headerName: 'Aboard', field: 'properties.aboard'},
@@ -415,12 +418,11 @@ $(document).ready(createSocialIcons = function() {
         {headerName: 'Route', field: 'properties.route'},
         {headerName: 'Location', field: 'properties.location'},
         {headerName: 'Type', field: 'properties.type'},
-
+        {headerName: 'Flight', field: 'properties.flight'},
+        {headerName: 'Summary', field: 'properties.summary'}
       ]
     };
-
     new agGrid.Grid(gridDiv, gridOptions);
-
 
     fetch("https://divi.io/api/features/NDMx.j-b6eeBbyTAnH06LmbJXveYBHcA")
       .then((resp) => resp.json()
@@ -430,6 +432,8 @@ $(document).ready(createSocialIcons = function() {
       .catch(function (error) {
         alert(error);
       });
+
+
 
   });
 
