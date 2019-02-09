@@ -442,7 +442,7 @@ $(document).ready(createSocialIcons = function() {
           data.data.geometry.coordinates[0],
           data.data.geometry.coordinates[1]
         ],
-        zoom: 10
+        zoom: 17
       })
     }
 
@@ -454,7 +454,7 @@ $(document).ready(createSocialIcons = function() {
       enableFilter: "true",
       onRowDoubleClicked: zoomTo,
       columnDefs: [
-        {headerName: 'ID', field: 'properties.id'},
+        {headerName: 'ID', field: 'properties.id', sort: "asc"},
         {headerName: 'Date', field: 'properties.date'},
         {headerName: 'Aboard', field: 'properties.aboard'},
         {headerName: 'Fatalities', field: 'properties.fatalities'},
