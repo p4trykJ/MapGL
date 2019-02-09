@@ -162,9 +162,6 @@ map.on('load', function () {
         if(feature.properties[poperty] == "null")
           feature.properties[poperty] = "no data"
       }
-      // if(feature.properties.route == "null") {
-      //   feature.properties.route = "no data"
-      // }
       let html = `<div class="popup__counter">
                   Accident in location:
                   ${e.features.length - index}/${e.features.length}
