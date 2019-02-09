@@ -320,7 +320,7 @@ $(document).ready(buildBookmarkSelect = function () {
   })
 });
 
-$(document).ready(toogleHillshade = function () {
+$(document).ready(toggleHillshade = function () {
   $("#hillshade__button")[0].onclick = function () {
     if(map.getLayer("hillshading") == undefined) {
       map.addLayer({
@@ -335,7 +335,7 @@ $(document).ready(toogleHillshade = function () {
   }
 })
 
-// $(document).ready(toogleWatershade = function () {
+// $(document).ready(toggleWatershade = function () {
 //   $("#watershade__button")[0].onclick = function () {
 //     if(map.getLayer("10m-bathymetry-81bsvj") == undefined) {
 //       map.addLayer({
