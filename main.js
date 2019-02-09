@@ -454,6 +454,7 @@ $(document).ready(createSocialIcons = function() {
       enableFilter: "true",
       onRowDoubleClicked: zoomTo,
       columnDefs: [
+        {headerName: 'ID', field: 'properties.id'},
         {headerName: 'Date', field: 'properties.date'},
         {headerName: 'Aboard', field: 'properties.aboard'},
         {headerName: 'Fatalities', field: 'properties.fatalities'},
