@@ -68,7 +68,6 @@ loadSources = function () {
 
   map.addSource("crashes", {
     type: "geojson",
-
     data: 'https://divi.io/api/features/NDMx.j-b6eeBbyTAnH06LmbJXveYBHcA',
     cluster: true,
     clusterMaxZoom: 14,
@@ -335,6 +334,22 @@ $(document).ready(toggleHillshade = function () {
   }
 })
 
+$(document).ready(toggleGrid = function () {
+  $("#hillshade__button")[0].onclick = function () {
+    if(map.getLayer("hillshading") == undefined) {
+      map.addLayer({
+        "id": "hillshading",
+        "source": "dem",
+        "type": "hillshade"
+      });
+    }
+    else {
+      map.removeLayer("hillshading")
+    }
+  }
+})
+
+
 // $(document).ready(toggleWatershade = function () {
 //   $("#watershade__button")[0].onclick = function () {
 //     if(map.getLayer("10m-bathymetry-81bsvj") == undefined) {
@@ -365,26 +380,60 @@ $(document).ready(toggleHillshade = function () {
 
 /*
 $(document).ready(createSocialIcons = function() {
-	let socialIconsParent = $('div.mapboxgl-control-container').children(".mapboxgl-ctrl-bottom-left");
-	console.log("rodzic", socialIconsParent);
-	let socialIcons = document.createElement("div");
-	socialIcons.className = "socialIcons__wrapper";
-	var html = `
-		<a class="socialIcon__wrapper--github btn btn-social-icon btn-github">
-			<span class="socialIcons__icon fab fa-github"></span>
-		</a>
-	`;
-	console.log("przed", socialIcons)
-	$('a.socialIcon__wrapper--github').html(html)
-	console.log(html)
-	console.log("po",socialIcons)
-	let url = "https://github.com/p4trykJ";
-	$(".socialIcon__wrapper--github").attr("href", url).attr("target", "_blank")[0].click();
-	socialIconsParent.append(socialIcons)
+  let socialIconsParent = $('div.mapboxgl-control-container').children(".mapboxgl-ctrl-bottom-left");
+  console.log("rodzic", socialIconsParent);
+  let socialIcons = document.createElement("div");
+  socialIcons.className = "socialIcons__wrapper";
+  var html = `
+    <a class="socialIcon__wrapper--github btn btn-social-icon btn-github">
+      <span class="socialIcons__icon fab fa-github"></span>
+    </a>
+  `;
+  console.log("przed", socialIcons)
+  $('a.socialIcon__wrapper--github').html(html)
+  console.log(html)
+  console.log("po",socialIcons)
+  let url = "https://github.com/p4trykJ";
+  $(".socialIcon__wrapper--github").attr("href", url).attr("target", "_blank")[0].click();
+  socialIconsParent.append(socialIcons)
 })
-
+ 
 */
 
+{
+  document.addEventListener('DOMContentLoaded', function () {
+
+
+    var gridDiv = document.querySelector('#myGrid');
+
+    var gridOptions = {
+      columnDefs: [
+        {headerName: 'Date', field: 'properties.date'},
+        {headerName: 'Aboard', field: 'properties.aboard'},
+        {headerName: 'Fatalities', field: 'properties.fatalities'},
+        {headerName: 'Operator', field: 'properties.operator'},
+        {headerName: 'Route', field: 'properties.route'},
+        {headerName: 'Location', field: 'properties.location'},
+        {headerName: 'Type', field: 'properties.type'},
+
+      ]
+    };
+
+    new agGrid.Grid(gridDiv, gridOptions);
+
+
+    fetch("https://divi.io/api/features/NDMx.j-b6eeBbyTAnH06LmbJXveYBHcA")
+      .then((resp) => resp.json()
+        .then(function (data) {
+          gridOptions.api.setRowData(data.features);
+        }))
+      .catch(function (error) {
+        alert(error);
+      });
+
+  });
+
+};
 
 
 

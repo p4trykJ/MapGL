@@ -103,28 +103,45 @@
           </div>
         </div>
       </div>
-      <!-- <span class="buttonsMap__button--tooltip" title="Water shading" data-placement="left" data-toggle="tooltip">
-        <button id="watershade__button" type="button" class="btn buttonsMap__button buttonsMap__button--middle buttonsMap__buttons--info">
-          <i class="fas fa-water"></i>
-        </button>
-      </span> -->
-      <span class="buttonsMap__button--tooltip" title="Terrain shading" data-placement="left" data-toggle="tooltip">
-        <button id="hillshade__button" type="button" class="btn buttonsMap__button buttonsMap__button--middle buttonsMap__buttons--info">
-          <i class="fas fa-mountain"></i>
-        </button>
-      </span>
-      <span class="buttonsMap__button--tooltip" title="About this map" data-placement="left" data-toggle="tooltip">
+      <span class="buttonsMap__button--tooltip" title="Data grid" data-placement="left" data-toggle="tooltip">
         <button type="button" class="btn buttonsMap__button buttonsMap__button--middle buttonsMap__buttons--info"
-          data-toggle="modal" data-target="#aboutCardModal">
-          <i class="fas fa-info"></i>
+          data-toggle="modal" data-target="#gridModal">
+          <i class="fas fa-table"></i>
         </button>
         <span>
-          <span class="buttonsMap__button--tooltip" title="Author" data-placement="left" data-toggle="tooltip">
-            <button type="button" class="btn buttonsMap__button buttonsMap__button--last buttonsMap__buttons--info"
-              data-toggle="modal" data-target="#authorCardModal">
-              <i class="fab fa-autoprefixer"></i>
+          <span class="buttonsMap__button--tooltip" title="Terrain shading" data-placement="left" data-toggle="tooltip">
+            <button id="hillshade__button" type="button" class="btn buttonsMap__button buttonsMap__button--middle buttonsMap__buttons--info">
+              <i class="fas fa-mountain"></i>
+            </button>
+          </span>
+          <span class="buttonsMap__button--tooltip" title="About this map" data-placement="left" data-toggle="tooltip">
+            <button type="button" class="btn buttonsMap__button buttonsMap__button--middle buttonsMap__buttons--info"
+              data-toggle="modal" data-target="#aboutCardModal">
+              <i class="fas fa-info"></i>
             </button>
             <span>
+              <span class="buttonsMap__button--tooltip" title="Author" data-placement="left" data-toggle="tooltip">
+                <button type="button" class="btn buttonsMap__button buttonsMap__button--last buttonsMap__buttons--info"
+                  data-toggle="modal" data-target="#authorCardModal">
+                  <i class="fab fa-autoprefixer"></i>
+                </button>
+                <span>
+    </div>
+  </div>
+  <div class="modal fade" id="gridModal" tabindex="-1" role="dialog" aria-labelledby="gridModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content gridModal__content">
+        <div class="modal-header" style="background-color: lightgray;">
+          <h5 class="modal-title" id="exampleModalLabel">Accidents</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div id="myGrid" style="width: 100%; height: 500px;" class="ag-theme-balham"></div>
+        </div>
+
+      </div>
     </div>
   </div>
   <div class="modal fade" id="aboutCardModal" tabindex="-1" role="dialog" aria-labelledby="aboutCardModalLabel"
@@ -180,6 +197,7 @@
       </div>
     </div>
   </div>
+
   </div>
   <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.3.0/mapbox-gl-geocoder.min.js'></script>
   <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.3.0/mapbox-gl-geocoder.css'
@@ -193,6 +211,7 @@
     crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
     crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ag-grid/19.1.4/ag-grid-community.js"></script>
 </body>
 
 </html>
