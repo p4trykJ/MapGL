@@ -204,11 +204,9 @@ map.on('load', function () {
         .setHTML(html)
         .addTo(map);
     })
-
     while(Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
       coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
     }
-
   });
 
   map.on('mouseenter', 'unclustered-point', function () {
@@ -301,7 +299,8 @@ $(document).ready(addBookmark = function () {
     $("#bookmarks__button--save")[0].onclick = function () {
       bookmark = {
         name: $("#bookmark-name").val(),
-        center: map.getCenter()
+        center: map.getCenter(),
+        zoom: map.getZoom()
       }
       bookmarks.push(bookmark)
       buildBookmarkSelect()
