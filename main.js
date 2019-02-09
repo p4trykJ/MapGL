@@ -302,6 +302,8 @@ $(document).ready(flyTo = function () {
       ],
       zoom: bookmarkData.zoom
     })
+
+    $("#select").val("asas")
   }
 })
 
