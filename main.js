@@ -315,7 +315,7 @@ $(document).ready(flyTo = function () {
       ],
       zoom: bookmarkData.zoom
     })
-    $("#firstSelected").prop('selected', true);
+    // $("#firstSelected").prop('selected', true);
   }
 })
 
