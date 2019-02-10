@@ -106,6 +106,18 @@ addCrashes = function () {
         ]
       }
     });
+    map.addLayer({
+      id: "unclustered-point",
+      type: "circle",
+      source: "crashes",
+      filter: ["!", ["has", "point_count"]],
+      paint: {
+        "circle-color": "#cb181d",
+        "circle-radius": 4,
+        "circle-stroke-width": 1,
+        "circle-stroke-color": "#cb181d"
+      }
+    });
   } else {
     map.addLayer({
       id: "clusters",
@@ -135,6 +147,18 @@ addCrashes = function () {
         ]
       }
     });
+    map.addLayer({
+      id: "unclustered-point",
+      type: "circle",
+      source: "crashes",
+      filter: ["!", ["has", "point_count"]],
+      paint: {
+        "circle-color": "#636363",
+        "circle-radius": 4,
+        "circle-stroke-width": 1,
+        "circle-stroke-color": "#636363"
+      }
+    });
   }
 
 
@@ -150,18 +174,7 @@ addCrashes = function () {
     }
   });
 
-  map.addLayer({
-    id: "unclustered-point",
-    type: "circle",
-    source: "crashes",
-    filter: ["!", ["has", "point_count"]],
-    paint: {
-      "circle-color": "#636363",
-      "circle-radius": 4,
-      "circle-stroke-width": 1,
-      "circle-stroke-color": "#636363"
-    }
-  });
+
 }
 
 map.on("style.load", function () {
