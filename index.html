@@ -8,10 +8,10 @@
   <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.js'></script>
   <!--CSS-->
   <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.css' rel='stylesheet' />
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
-    crossorigin="anonymous">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
-    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+    integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
   <link rel="stylesheet" href="style/style.css">
   <!--CSS-->
   <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
@@ -19,7 +19,15 @@
 </head>
 
 <body>
+  <div class="loader__wrapper">
+    <div class="loader"></div>
+    <div style="margin-top: 10px;">
+      <h2>
+        Loading
+      </h2>
+    </div>
 
+  </div>
   <div class="modal fade" id="bookmarksModal" tabindex="-1" role="dialog" aria-labelledby="bookmarksModalLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" style="width: 300px;" role="document">
@@ -39,8 +47,10 @@
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn bookmarks__button bookmarks__button--close" data-dismiss="modal">Cancel</button>
-          <button id="bookmarks__button--save" type="button" class="btn bookmarks__button bookmarks__button--save">Save</button>
+          <button type="button" class="btn bookmarks__button bookmarks__button--close"
+            data-dismiss="modal">Cancel</button>
+          <button id="bookmarks__button--save" type="button"
+            class="btn bookmarks__button bookmarks__button--save">Save</button>
         </div>
       </div>
     </div>
@@ -82,9 +92,11 @@
       </div>
     </div>
     <div class="buttonsMap__wrapper">
-      <div class="buttonsMap__button--tooltip btn-group dropleft" title="Bookmarks" data-placement="left" data-toggle="tooltip">
+      <div class="buttonsMap__button--tooltip btn-group dropleft" title="Bookmarks" data-placement="left"
+        data-toggle="tooltip">
 
-        <button type="button" data-toggle="dropdown" aria-haspopup="true" class="btn buttonsMap__button buttonsMap__button--first buttonsMap__buttons--info">
+        <button type="button" data-toggle="dropdown" aria-haspopup="true"
+          class="btn buttonsMap__button buttonsMap__button--first buttonsMap__buttons--info">
           <i class="fas fa-bookmark"></i>
         </button>
 
@@ -98,7 +110,8 @@
               <div class="btn-group btn-group-sm" role="group">
                 <button id="bookmarks__button--add" type="button" data-toggle="modal" data-target="#bookmarksModal"
                   class="btn basemapChange__button" title="Add bookmark">+</button>
-                <button id="bookmarks__button--remove" type="button" class="btn basemapChange__button" title="Remove selected bookmark">-</button>
+                <button id="bookmarks__button--remove" type="button" class="btn basemapChange__button"
+                  title="Remove selected bookmark">-</button>
               </div>
             </div>
           </div>
@@ -111,7 +124,8 @@
         </button>
         <span>
           <span class="buttonsMap__button--tooltip" title="Terrain shading" data-placement="left" data-toggle="tooltip">
-            <button id="hillshade__button" type="button" class="btn buttonsMap__button buttonsMap__button--middle buttonsMap__buttons--info">
+            <button id="hillshade__button" type="button"
+              class="btn buttonsMap__button buttonsMap__button--middle buttonsMap__buttons--info">
               <i class="fas fa-mountain"></i>
             </button>
           </span>
@@ -129,7 +143,8 @@
                 <span>
     </div>
   </div>
-  <div class="modal fade" id="gridModal" tabindex="-1" role="dialog" aria-labelledby="gridModalLabel" aria-hidden="true">
+  <div class="modal fade" id="gridModal" tabindex="-1" role="dialog" aria-labelledby="gridModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content gridModal__content" style="width: 800px;">
         <div class="modal-header">
@@ -162,7 +177,8 @@
                 This map displays airplane accidents all around the world since 1908 till 2009.
                 Data was geocoded using HERE API.
                 <br>
-                <a class="" target="_blank" rel="noopener noreferrer" href="https://data.world/data-society/airplane-crashes?fbclid=IwAR3Ptn9_YvcPaj5a7d8Tbl2fRLjPjZGljIoGS2h4yyMxonGEYDAGcFVeadA">
+                <a class="" target="_blank" rel="noopener noreferrer"
+                  href="https://data.world/data-society/airplane-crashes?fbclid=IwAR3Ptn9_YvcPaj5a7d8Tbl2fRLjPjZGljIoGS2h4yyMxonGEYDAGcFVeadA">
                   Data source
                 </a>
               </div>
@@ -178,21 +194,50 @@
       <div class="modal-content authorCardModal__content">
         <div class="modal-body authorModal__body">
           <div class="card">
+            <!-- <img class="authorCard--photo" src="static/author.png" alt="Avatar" style="width:100%"> -->
+            <div class="container">
+
+              <div class="socialIcons__wrapper">
+                <a class="socialIcon__wrapper--github btn btn-social-icon btn-github" target="_blank"
+                  rel="noopener noreferrer" href="https://github.com/p4trykJ">
+                  <span class="socialIcons__icon fab fa-github"></span>
+                </a>
+                <a class="socialIcon__wrapper--facebook btn btn-social-icon btn-facebook" target="_blank"
+                  rel="noopener noreferrer" href="https://www.facebook.com/SekcjaGeoinformacjiUam/">
+                  <span class="socialIcons__icon fab fa-facebook"></span>
+                </a><a class="socialIcon__wrapper--linkedin btn btn-social-icon btn-btn-linkedin" target="_blank"
+                  rel="noopener noreferrer" href="https://www.facebook.com/SekcjaGeoinformacjiUam/">
+                  <span class="socialIcons__icon fab fa-linkedin"></span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <!-- <div class="modal fade" id="authorCardModal" tabindex="-1" role="dialog" aria-labelledby="authorCardModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content authorCardModal__content">
+        <div class="modal-body authorModal__body">
+          <div class="card">
             <img class="authorCard--photo" src="static/author.png" alt="Avatar" style="width:100%">
             <div class="container">
               <div style="text-align: center;">
                 <h4><b>Patryk Jezierski</b></h4>
                 <p>patrykw.jezierski@gmail.com</p>
                 <div class="socialIcons__wrapper">
-                  <a class="socialIcon__wrapper--github btn btn-social-icon btn-github" target="_blank" rel="noopener noreferrer"
-                    href="https://github.com/p4trykJ">
+                  <a class="socialIcon__wrapper--github btn btn-social-icon btn-github" target="_blank"
+                    rel="noopener noreferrer" href="https://github.com/p4trykJ">
                     <span class="socialIcons__icon fab fa-github"></span>
                   </a>
-                  <a class="socialIcon__wrapper--facebook btn btn-social-icon btn-facebook" target="_blank" rel="noopener noreferrer"
-                    href="https://www.facebook.com/SekcjaGeoinformacjiUam/">
+                  <a class="socialIcon__wrapper--facebook btn btn-social-icon btn-facebook" target="_blank"
+                    rel="noopener noreferrer" href="https://www.facebook.com/SekcjaGeoinformacjiUam/">
                     <span class="socialIcons__icon fab fa-facebook"></span>
-                  </a><a class="socialIcon__wrapper--linkedin btn btn-social-icon btn-btn-linkedin" target="_blank" rel="noopener noreferrer"
-                    href="https://www.facebook.com/SekcjaGeoinformacjiUam/">
+                  </a><a class="socialIcon__wrapper--linkedin btn btn-social-icon btn-btn-linkedin" target="_blank"
+                    rel="noopener noreferrer" href="https://www.facebook.com/SekcjaGeoinformacjiUam/">
                     <span class="socialIcons__icon fab fa-linkedin"></span>
                   </a>
                 </div>
@@ -202,20 +247,24 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
   </div>
-  <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.3.0/mapbox-gl-geocoder.min.js'></script>
-  <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.3.0/mapbox-gl-geocoder.css'
+  <script
+    src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.3.0/mapbox-gl-geocoder.min.js'></script>
+  <link rel='stylesheet'
+    href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.3.0/mapbox-gl-geocoder.css'
     type='text/css' />
   <div id='map'></div>
   <script src="main.js"></script>
   <!--
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+    integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
     crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+    integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
     crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/ag-grid/19.1.4/ag-grid-community.js"></script>
 </body>

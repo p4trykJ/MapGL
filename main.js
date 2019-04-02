@@ -68,7 +68,7 @@ loadSources = function () {
 
   map.addSource("crashes", {
     type: "geojson",
-    data: 'https://divi.io/api/features/NDMx.j-b6eeBbyTAnH06LmbJXveYBHcA',
+    data: 'https://divi.io/api/features/NDUx.7Axfr_pmJUMuy1xH7UqKfBfZu08',
     cluster: true,
     clusterMaxZoom: 14,
     clusterRadius: 50
@@ -183,7 +183,7 @@ map.on("style.load", function () {
 })
 
 map.on('load', function () {
-
+  $(".loader__wrapper")[0].style.display = 'none';
   map.on('click', 'clusters', function (e) {
     var features = map.queryRenderedFeatures(e.point, {layers: ['clusters']});
     var clusterId = features[0].properties.cluster_id;
@@ -482,13 +482,13 @@ $(document).ready(createSocialIcons = function() {
     };
     new agGrid.Grid(gridDiv, gridOptions);
 
-    fetch("https://divi.io/api/features/NDMx.j-b6eeBbyTAnH06LmbJXveYBHcA")
+    fetch("https://divi.io/api/features/NDUx.7Axfr_pmJUMuy1xH7UqKfBfZu08")
       .then((resp) => resp.json()
         .then(function (data) {
           gridOptions.api.setRowData(data.features);
         }))
       .catch(function (error) {
-        alert("Error:", error);
+        alert("Failed to fetch data");
       });
   });
 };
