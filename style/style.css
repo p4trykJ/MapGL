@@ -253,3 +253,7 @@ body {
 .modal-header {
   background-color: lightgray;
 }
+.card__about {
+  height: 300px;
+  width: 300px;
+}
